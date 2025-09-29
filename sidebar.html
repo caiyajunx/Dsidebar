@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>AI 助手</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- V6.2 布局容器 -->
+  <div id="app-container" class="aiTranslator-app-container">
+    
+    <!-- 1. 左侧超窄导航栏 (Rail Mode) -->
+    <div id="aiTranslator-nav-rail" class="aiTranslator-nav-rail">
+        <div id="aiTranslator-nav-buttons-container" class="aiTranslator-nav-buttons-container">
+            <!-- Rail 模式的导航按钮将由 JS 动态创建 -->
+        </div>
+        <div class="aiTranslator-nav-footer">
+            <button id="aiTranslator-collapse-button" class="aiTranslator-nav-button" title="收起菜单">
+                <!-- Collapse icon SVG -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                <span class="button-text">收起</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- 2. 右侧主内容区 -->
+    <div id="aiTranslator-content-wrapper" class="aiTranslator-content-wrapper">
+      <!-- V6.2 新增：顶部状态栏 -->
+      <div id="aiTranslator-top-bar" class="aiTranslator-top-bar">
+        <button id="aiTranslator-top-bar-menu-button" class="aiTranslator-menu-button" title="打开菜单">
+          <!-- Menu icon SVG -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+        <div id="aiTranslator-mode-status" class="aiTranslator-mode-status">
+          <!-- 当前模式状态将由 JS 动态更新 -->
+        </div>
+      </div>
+
+      <!-- V6.2 新增：内容面板容器 -->
+      <div id="aiTranslator-panel-container" class="aiTranslator-panel-container">
+        <!-- 功能面板将由 JS 动态插入 -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. 悬浮九宫格菜单 (Floating Mode 使用) -->
+  <div id="aiTranslator-floating-menu" class="aiTranslator-floating-menu">
+      <div id="aiTranslator-floating-menu-grid" class="aiTranslator-floating-menu-grid">
+         <!-- 浮动模式的导航按钮将由 JS 动态创建 -->
+      </div>
+      <button id="aiTranslator-expand-button" class="aiTranslator-floating-menu-expand" title="展开侧边栏">
+        <!-- Expand icon SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+        <span>展开</span>
+      </button>
+  </div>
+
+  <!-- 引入库和主脚本 -->
+  <script src="marked.min.js"></script>
+  <script src="prompts.js"></script>
+  <script src="sidebar.js"></script>
+</body>
+</html>

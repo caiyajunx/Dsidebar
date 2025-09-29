@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "DSider Beta",
+  "version": "1.2.0",
+  "description": "使用AI完成翻译、对话、搜索",
+  "permissions": [
+    "storage",
+    "sidePanel",
+    "contextMenus"
+  ],
+  "host_permissions": [
+    "https://deepseek.imeik.com/*",
+    "https://api.tavily.com/*"
+  ],
+  "side_panel": {
+    "default_path": "sidebar.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.sciencedirect.com/*",
+        "https://pubmed.ncbi.nlm.nih.gov/*",
+        "https://km.imeik.com/*",
+        "https://imeik.feishu.cn/*"
+      ],
+      "css": ["style.css"],
+      "js": ["content.js"      ]
+    }
+  ],
+  "action": {
+    "default_title": "打开 AI 助手",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
