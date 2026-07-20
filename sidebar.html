@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>AI 助手</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Dsider 助手</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <!-- V6.2 布局容器 -->
@@ -56,8 +56,18 @@
   </div>
 
   <!-- 引入库和主脚本 -->
-  <script src="marked.min.js"></script>
-  <script src="prompts.js"></script>
-  <script src="sidebar.js"></script>
+  <script src="js/lib/marked.min.js"></script>
+  <!-- 模块化脚本 -->
+  <script src="js/constants.js"></script>
+  <script src="js/defaults/defaultConfig.js"></script>
+  <script src="js/defaults/exampleConfig.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/api_service.js"></script>
+  <script src="js/modules/prompts.js"></script>
+  <script src="js/modules/translate.js"></script>
+  <script src="js/modules/chat.js"></script>
+  <script src="js/modules/search.js"></script>
+  <script src="js/modules/settings.js"></script>
+  <script src="js/sidebar.js"></script>
 </body>
 </html>

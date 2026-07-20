@@ -1,33 +1,63 @@
 {
   "manifest_version": 3,
-  "name": "DSider Beta",
-  "version": "1.2.0",
-  "description": "使用AI完成翻译、对话、搜索",
+  "name": "DSider 药物研发助手",
+  "version": "2.0.0",
+  "description": "DSider 药物研发侧边栏助手：翻译、对话、循证搜索、Prompt 与本地配置管理。",
   "permissions": [
     "storage",
     "sidePanel",
     "contextMenus"
   ],
   "host_permissions": [
-    "https://deepseek.imeik.com/*",
-    "https://api.tavily.com/*"
+    "https://api.tavily.com/*",
+    "https://ima.qq.com/*",
+    "https://aily.feishu.cn/*",
+    "https://open.bigmodel.cn/*",
+    "https://api.siliconflow.cn/*",
+    "https://zenmux.ai/*",
+    "https://api.openai.com/*",
+    "https://generativelanguage.googleapis.com/*",
+    "https://api.fda.gov/*",
+    "https://clinicaltrials.gov/*"
+  ],
+  "optional_host_permissions": [
+    "https://*/*",
+    "http://*/*"
   ],
   "side_panel": {
     "default_path": "sidebar.html"
   },
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "js/background.js"
   },
   "content_scripts": [
     {
       "matches": [
-        "https://www.sciencedirect.com/*",
-        "https://pubmed.ncbi.nlm.nih.gov/*",
-        "https://km.imeik.com/*",
-        "https://imeik.feishu.cn/*"
+        "<all_urls>"
       ],
-      "css": ["style.css"],
-      "js": ["content.js"      ]
+      "js": ["js/lib/marked.min.js", "js/content.js"],
+      "all_frames": true
+    },
+    {
+      "matches": [
+        "https://ima.qq.com/wikis*"
+      ],
+      "js": [
+        "js/ima-modifier.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true
+    },
+    {
+      "matches": [
+        "https://aily.feishu.cn/ai/*",
+        "https://ima.qq.com/wikis*"
+      ],
+      "js": [
+        "js/injector.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
     }
   ],
   "action": {

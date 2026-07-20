@@ -1,0 +1,7 @@
+/* style-ima.css */
+/* 这个文件用于对嵌入的 IMA 助手页面进行独立的样式调整。*/
+
+/* 【修改】只有在侧边栏中才隐藏 Header */
+.in-dsider-panel [class^="_pageHeader_"] {
+    display: none !important;
+}

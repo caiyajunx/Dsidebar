@@ -1,0 +1,24 @@
+# Local user configuration and secrets
+userConfig.json
+*.local.json
+*.private.json
+.env
+.env.*
+secrets/
+private/
+
+# Exported settings from the extension
+ai_assistant_settings_*.json
+dsider_settings_*.json
+dsider_private_settings_*.json
+
+# Dependencies and generated artifacts
+node_modules/
+dist/
+build/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
