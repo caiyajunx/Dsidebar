@@ -56,21 +56,21 @@
                 display: block !important;
                 margin-top: 2px !important;
                 margin-bottom: 2px !important;
-                padding: 6px !important;
-                background-color: rgba(255, 255, 255, 0.95) !important;
-                border: 1px solid rgba(224, 224, 224, 0.8) !important;
-                border-left: 2px solid #7563ff !important;
+                padding: 8px !important;
+                padding-left: 12px !important;
+                background-color: transparent !important;
+                border: none !important;
+                border-left: 3px solid #7563ff !important;
                 color: #333 !important;
                 font-size: 14px !important;
                 line-height: 1.6 !important;
-                border-radius: 6px !important;
+                border-radius: 0 !important;
                 position: relative !important;
                 z-index: 2147483646 !important;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
+                box-shadow: none !important;
                 font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
                 min-width: 200px !important;
                 text-align: left !important;
-                backdrop-filter: blur(4px) !important;
             }
 
             .dsider-loading {

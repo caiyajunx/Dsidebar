@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "DSider 药物研发助手",
+  "name": "Dsider助手",
   "version": "2.0.0",
-  "description": "DSider 药物研发侧边栏助手：翻译、对话、循证搜索、Prompt 与本地配置管理。",
+  "description": "Dsider助手：翻译、对话、搜索、Prompt 与本地配置管理。",
   "permissions": [
     "storage",
     "sidePanel",
@@ -61,7 +61,7 @@
     }
   ],
   "action": {
-    "default_title": "打开 AI 助手",
+    "default_title": "打开 Dsider助手",
     "default_icon": {
       "16": "icons/icon16.png",
       "48": "icons/icon48.png"

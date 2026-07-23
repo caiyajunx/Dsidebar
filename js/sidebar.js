@@ -62,6 +62,7 @@
             targetLanguage: null, maxHistoryItems: null,
             translationHistory: [], chatHistory: [], searchHistory: [],
             uiMode: null, searchSettings: null, menuVisibility: null, customTools: null,
+            menuVisibilityDefaultsVersion: null,
             hideTranslateBtnDomains: null,
             enableFloatingTranslateButton: null,
             setupCompleted: false,
@@ -108,6 +109,7 @@
                 searchSettings: storedData.searchSettings,
                 customTools: storedData.customTools,
                 menuVisibility: storedData.menuVisibility,
+                menuVisibilityDefaultsVersion: '2.0.1',
                 uiMode: storedData.uiMode,
                 hideTranslateBtnDomains: storedData.hideTranslateBtnDomains,
                 enableFloatingTranslateButton: storedData.enableFloatingTranslateButton,
@@ -144,20 +146,41 @@
         storedData.schemaVersion = DS.DEFAULT_CONFIG?.schemaVersion || storedData.schemaVersion || '2.0';
         await storage.set({ searchSettings: storedData.searchSettings });
 
+        // V2.0.2: remove the retired Aminer navigation entry from existing local settings.
+        const savedCustomTools = Array.isArray(storedData.customTools) ? storedData.customTools : [];
+        const customTools = savedCustomTools.filter(tool => {
+            const name = String(tool?.name || '').trim().toLowerCase();
+            const url = String(tool?.url || '').trim();
+            return name !== 'aminer' && !/^https?:\/\/(?:www\.)?aminer\.cn(?:[/?#]|$)/i.test(url);
+        });
+        if (!Array.isArray(storedData.customTools) || customTools.length !== savedCustomTools.length) {
+            storedData.customTools = customTools;
+            await storage.set({ customTools });
+        }
+
         // Ensure menuVisibility for existing users (migration)
         if (!storedData.menuVisibility || typeof storedData.menuVisibility !== 'object') {
             const defaults = DS.DEFAULT_CONFIG || {};
-            storedData.menuVisibility = defaults.menuVisibility || { bohrium: true, aily: true, ima: true, wenda: true, kimi: true, doubao: true, prompts: true };
+            storedData.menuVisibility = defaults.menuVisibility || { bohrium: false, aily: true, ima: true, wenda: true, kimi: true, doubao: true, prompts: true };
             
             // Migration: add new visibility keys for existing users
-            ['bohrium', 'aily'].forEach(key => {
+            const addedVisibilityDefaults = { bohrium: false, aily: true };
+            Object.entries(addedVisibilityDefaults).forEach(([key, defaultValue]) => {
                 if (!storedData.menuVisibility.hasOwnProperty(key)) {
-                    storedData.menuVisibility[key] = true;
+                    storedData.menuVisibility[key] = defaultValue;
                 }
             });
             
-            await storage.set({ menuVisibility: storedData.menuVisibility });
         }
+        // V2.0.1: Bohrium is optional and hidden by default. Older builds had no menu toggle.
+        if (storedData.menuVisibilityDefaultsVersion !== '2.0.1') {
+            storedData.menuVisibility.bohrium = false;
+            storedData.menuVisibilityDefaultsVersion = '2.0.1';
+        }
+        await storage.set({
+            menuVisibility: storedData.menuVisibility,
+            menuVisibilityDefaultsVersion: storedData.menuVisibilityDefaultsVersion
+        });
 
         // Ensure enableFloatingTranslateButton for existing users (migration)
         if (typeof storedData.enableFloatingTranslateButton !== 'boolean') {
@@ -577,7 +600,7 @@
                 if (url) {
                     if (modeId === 'ima' || modeObj?.isCustom) {
                         const separator = url.includes('?') ? '&' : '?';
-                        url += `${separator}in-dsider-panel=true`;
+                        url += `${separator}in-aiTranslator-panel=true`;
                     }
 
                     iframe = document.createElement('iframe');

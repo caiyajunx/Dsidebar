@@ -24,7 +24,7 @@
             panel.innerHTML = `
               <div class="${SCRIPT_PREFIX}-settings-header">
                 <h2>设置</h2>
-                <div class="aiTranslator-settings-header-actions">
+                <div class="${SCRIPT_PREFIX}-settings-header-actions">
                   <button id="import-settings-btn" class="${SCRIPT_PREFIX}-button-control">导入配置</button>
                   <button id="export-settings-btn" class="${SCRIPT_PREFIX}-button-control">导出配置</button>
                 </div>
@@ -406,9 +406,9 @@
             linksContainer.style.gap = '12px';
     
             const recommendedLinks = [
-                { name: '硅基流动', url: 'https://siliconflow.cn/', desc: '硅基流动（SiliconFlow）模型 API 平台' },
-                { name: '智谱', url: 'https://www.bigmodel.cn/', desc: '智谱 AI 模型服务平台' },
-                { name: 'OpenAI API', url: 'https://platform.openai.com/', desc: 'OpenAI API 平台' }
+                { name: '硅基流动', url: 'https://cloud.siliconflow.cn/i/ANeQOJjB', desc: '硅基流动（SiliconFlow）模型 API 平台，支持DeepSeek、Kimi、智普、Qwen等国产模型' },
+                { name: '智谱', url: 'https://cloud.siliconflow.cn/i/ANeQOJjB', desc: '智谱，支持GLM-4-Flash 免费使用' },
+                { name: '兔子API', url: 'https://api.tu-zi.com/register?aff=Hfao', desc: '国内外大模型，Openai模型，Claude模型、Gemini模型等' }
             ];
     
             recommendedLinks.forEach(link => {
@@ -728,9 +728,9 @@
             // Here we can just iterate config.menuVisibility keys or hardcode known ones.
             // Let's use the hardcoded list from original code to map text
             const modeMap = {
-                'aily': 'Aily', 'ima': 'IMA', 'wenda': '问答', 'kimi': 'KIMI', 'doubao': '豆包', 'prompts': '咒语'
+                'bohrium': '玻尔', 'aily': 'Aily', 'ima': 'IMA', 'wenda': '问答', 'kimi': 'KIMI', 'doubao': '豆包', 'prompts': '咒语'
             };
-            const configurableModes = ['aily', 'ima', 'wenda', 'kimi', 'doubao','prompts'];
+            const configurableModes = ['bohrium', 'aily', 'ima', 'wenda', 'kimi', 'doubao', 'prompts'];
             
             configurableModes.forEach(modeId => {
                 const group = document.createElement('div');

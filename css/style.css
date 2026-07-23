@@ -273,6 +273,60 @@ body {
 .aiTranslator-assistant-message th, .aiTranslator-assistant-message td { border: 1px solid var(--border-color-dark); padding: 8px 12px; }
 .aiTranslator-assistant-message th { background-color: var(--bg-secondary); }
 
+/* --- Translation Card Styles --- */
+.dsider-card {
+    background-color: #ffffff;
+    border: 1px solid var(--border-color-light);
+    border-radius: var(--border-radius-md);
+    padding: 12px 14px 8px 14px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    transition: box-shadow 0.2s ease;
+}
+
+.dsider-card:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.dsider-card-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-bottom: 4px;
+}
+
+.dsider-card-content {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-primary);
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.dsider-card > div:last-child {
+    margin-bottom: 0 !important;
+}
+
+.dsider-card-content > *:last-child {
+    margin-bottom: 0 !important;
+}
+
+.aiTranslator-assistant-message > *:last-child {
+    margin-bottom: 0 !important;
+}
+
+.aiTranslator-assistant-message * {
+    margin-bottom: 0 !important;
+}
+
+.dsider-card-divider {
+    height: 1px;
+    background-color: var(--border-color-light);
+    margin: 10px 0;
+}
+
 /* --- NEW: Search Result Styles --- */
 .aiTranslator-citation {
     display: inline-block;
@@ -1443,7 +1497,7 @@ body {
 }
 
 /* --- Translation Card Styles (V16) --- */
-.dsider-card {
+.aiTranslator-card {
     background-color: var(--bg-primary);
     border: 1px solid var(--border-color-light);
     border-radius: 12px;
@@ -1453,12 +1507,12 @@ body {
     transition: all 0.2s ease;
 }
 
-.dsider-card:hover {
+.aiTranslator-card:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     border-color: var(--border-color-dark);
 }
 
-.dsider-card-label {
+.aiTranslator-card-label {
     font-size: 14px;
     font-weight: 600;
     color: var(--text-primary);
@@ -1467,7 +1521,7 @@ body {
     align-items: center;
 }
 
-.dsider-card-content {
+.aiTranslator-card-content {
     font-size: 14px;
     line-height: 1.6;
     color: var(--text-secondary);
@@ -1476,16 +1530,16 @@ body {
 }
 
 /* Specifics */
-.dsider-card.origin .dsider-card-content {
+.aiTranslator-card.origin .aiTranslator-card-content {
     color: var(--text-secondary);
 }
 
-.dsider-card.translation {
+.aiTranslator-card.translation {
     background-color: #fcfcff; /* Very subtle tint */
     border-color: #e9e7ff;
 }
 
-.dsider-card.translation .dsider-card-content {
+.aiTranslator-card.translation .aiTranslator-card-content {
     color: var(--text-primary);
     font-weight: 500;
 }
@@ -1602,7 +1656,7 @@ body {
 }
 
 /* --- 翻译按钮样式 --- */
-.dsider-translate-btn {
+.aiTranslator-translate-btn {
     position: absolute;
     z-index: 2147483647;
     background-color: #7563ff;
@@ -1617,12 +1671,12 @@ body {
     transition: opacity 0.2s, background-color 0.2s;
 }
 
-.dsider-translate-btn:hover {
+.aiTranslator-translate-btn:hover {
     background-color: #8c7eff;
 }
 
 /* --- 翻译结果框样式 --- */
-.dsider-result-box {
+.aiTranslator-result-box {
     display: block;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -1639,13 +1693,13 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
-.dsider-loading {
+.aiTranslator-loading {
     color: #888;
     font-style: italic;
 }
 
 /* --- 操作按钮样式 --- */
-.dsider-copy-btn {
+.aiTranslator-copy-btn {
     background-color: #7563ff;
     color: white;
     border: none;
@@ -1657,11 +1711,11 @@ body {
     transition: background-color 0.2s;
 }
 
-.dsider-copy-btn:hover {
+.aiTranslator-copy-btn:hover {
     background-color: #8c7eff;
 }
 
-.dsider-close-btn {
+.aiTranslator-close-btn {
     background-color: transparent;
     color: #6e6e80;
     border: 1px solid #d9d9e3;
@@ -1672,7 +1726,7 @@ body {
     transition: all 0.2s;
 }
 
-.dsider-close-btn:hover {
+.aiTranslator-close-btn:hover {
     background-color: #f0f0f2;
     color: #202123;
 }

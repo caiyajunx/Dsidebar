@@ -64,16 +64,10 @@
         enableFloatingTranslateButton: false,
         hideTranslateBtnDomains: 'feishu.cn,feishu.com,notion.so,docs.google.com,workflowy.com',
 
-        customTools: [
-            {
-                id: (timestamp + 2).toString(),
-                name: 'Aminer',
-                url: 'https://www.aminer.cn/'
-            }
-        ],
+        customTools: [],
 
         menuVisibility: {
-            bohrium: true,
+            bohrium: false,
             aily: true,
             ima: true,
             wenda: true,
