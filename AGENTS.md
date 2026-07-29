@@ -1,5 +1,7 @@
 # PROJECT KNOWLEDGE BASE
 
+下载或推送 GitHub 代码时，优先使用 GitHub CLI（`gh`）。
+
 **Generated:** 2026-07-08
 **Project:** DSider v1.5 - Browser Extension
 
